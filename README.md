@@ -6,12 +6,10 @@ Hair Mask RCNN using matterport model
 [Weights](https://drive.google.com/file/d/1ZbWTqWLi7w-lVvf7TQ59Gqil_SJnofbE/view?usp=sharing)</br></br>
 
 #### Folder path should look like
-.
-|
-├── dataset                     # Dataset
-│   ├── train                   # Train images 
-│   └── val                     # Validation images    
-|
-├── mask_rcnn_hair_0200.h5      # Weights
-|
-└── run.py                      # Training,loading and detecting functions
+.</br>
+|</br>
+|── dataset </br>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|── train </br>
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|── val  </br>
+|── mask_rcnn_hair_0200.h5</br>
+|── run.py</br>
