@@ -139,7 +139,7 @@ def train(model):
     print("Training network heads")
     model.train(dataset_train, dataset_val,
                     learning_rate=config.LEARNING_RATE,
-                    epochs=40,
+                    epochs=60,
                     layers='heads')
 
         # Training - Stage 2
@@ -147,7 +147,7 @@ def train(model):
     print("Fine tune Resnet stage 4 and up")
     model.train(dataset_train, dataset_val,
                     learning_rate=config.LEARNING_RATE,
-                    epochs=120,
+                    epochs=140,
                     layers='4+')
 
         # Training - Stage 3
@@ -155,7 +155,7 @@ def train(model):
     print("Fine tune all layers")
     model.train(dataset_train, dataset_val,
                     learning_rate=config.LEARNING_RATE / 10,
-                    epochs=200,
+                    epochs=220,
                     layers='all')
 
 
@@ -188,10 +188,12 @@ def detect_and_mask(model, image_path=None, video_path=None):
         # Read image
         image = cv2.imread(args.image)
         # Detect objects
+        image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
         r = model.detect([image], verbose=1)[0]
         # Mask
         crop = apply_mask(image, r['masks'])
         # Save output
+        crop = cv2.cvtColor(crop,cv2.COLOR_RGB2BGR)
         file_name = "crop_{:%Y%m%dT%H%M%S}.png".format(datetime.datetime.now())
         cv2.imwrite(file_name,crop)
     elif video_path:
